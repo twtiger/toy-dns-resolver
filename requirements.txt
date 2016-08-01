@@ -1,2 +1,5 @@
-pip install pyopenssl cryptography idna certifi
+pyopenssl
+cryptography
+idna
+certifi
 psychic
