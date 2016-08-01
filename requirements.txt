@@ -1,2 +1,2 @@
-urllib3[secure]
+pip install pyopenssl cryptography idna certifi
 psychic
