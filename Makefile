@@ -7,6 +7,7 @@ compile:
 	gcc src/* -o $(BUILD_DIR)/resolver
 
 deps:
+	pip install --user --upgrade pip
 	pip install --user -r requirements.txt
 
 test:
