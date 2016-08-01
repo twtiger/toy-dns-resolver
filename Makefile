@@ -7,7 +7,7 @@ compile:
 	gcc src/* -o $(BUILD_DIR)/resolver
 
 deps:
-	pip install -r requirements.txt
+	pip install --user -r requirements.txt
 
 test:
 	psychic
