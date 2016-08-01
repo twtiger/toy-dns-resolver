@@ -6,8 +6,11 @@ compile:
 	mkdir -p $(BUILD_DIR)
 	gcc src/* -o $(BUILD_DIR)/resolver
 
-deps:
+deps-travis:
 	pip install --user -r requirements.txt
+
+deps:
+	pip install -r requirements.txt
 
 test:
 	psychic
