@@ -7,12 +7,12 @@ python:
 
 before_install:
   - sudo apt-get update
-  - sudo apt-get -y install python3-setuptools
-  - sudo easy_install3 pip
+  - sudo apt-get -y install python3-setuptools python3-venv
 
 install:
-  - /usr/bin/python3 -m venv .
-  - source venv/bin/activate
+  - python3 -m venv .
+  - source ./bin/activate
+  - pip install --upgrade pip
   - pip install -r requirements.txt
 
 script: make test
