@@ -6,14 +6,15 @@ python:
   - "3.5"
 
 before_install:
-  - sudo apt-get update
-  - sudo apt-get -y install python3-pip python-dev
-  - sudo pip3 install -U setuptools
-  - sudo pip3 install -U virtualenvwrapper
-  - python3 -V
-  - pip3 -V
+  - sudo apt-get update && sudo apt-get upgrade
+  - sudo apt-get -y install python3-setuptools
+  - sudo easy_install3 pip
+  - sudo pip install virtualenv
+  - which python3
 
 install:
-  - sudo pip3 install -r requirements.txt
+  - virtualenv -p /usr/bin/python3 venv
+  - source venv/bin/activate
+  - pip install -r requirements.txt
 
 script: make test
