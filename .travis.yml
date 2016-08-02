@@ -5,6 +5,10 @@ compiler: gcc
 python:
   - "3.5"
 
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install python3
+
 install:
   - sudo pip install --upgrade pip
   - make deps-travis
