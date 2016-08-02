@@ -10,7 +10,7 @@ before_install:
   - sudo apt-get install python3
 
 install:
-  - sudo pip install --upgrade pip
+  - pip install --user --upgrade pip
   - make deps-travis
 
 script: make test
