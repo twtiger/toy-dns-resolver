@@ -1,16 +1,15 @@
+CC = gcc
+SRC_DIR := $(shell pwd)/src
+INCLUDES = -I
+OBJS = src/resolver.o
+
 default: test
-
-BUILD_DIR = _build
-
-compile:
-	mkdir -p $(BUILD_DIR)
-	gcc src/* -o $(BUILD_DIR)/resolver
 
 deps:
 	pip install -r requirements.txt
 
-test:
-	psychic
+test: $(OBJS)
+	psychic --cargs='$(OBJS) $(INCLUDES) $(SRC_DIR)'
 
 clean:
-	rm -r $(BUILD_DIR)
+	rm src/*.o
