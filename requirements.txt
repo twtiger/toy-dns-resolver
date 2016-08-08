@@ -1,5 +1,2 @@
-pyopenssl
-cryptography
-idna
-certifi
+urllib3[secure]
 psychic
