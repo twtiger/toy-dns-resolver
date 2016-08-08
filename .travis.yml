@@ -1,5 +1,5 @@
-dist: xenial
-
+sudo: required
+dist: trusty
 language: c
 
 compiler: gcc
@@ -7,13 +7,11 @@ compiler: gcc
 python:
   - "3.5"
 
-before_install:
-  - sudo apt-get update
-  - sudo apt-get -y install python3-setuptools python3-venv
-
 install:
-  - python3 -m venv .
-  - source ./bin/activate
+  - sudo apt-get update
+  - sudo apt-get -y install python3-setuptools python-virtualenv
+  - virtualenv --python=$(which python3) .venv
+  - source .venv/bin/activate
   - pip install --upgrade pip
   - pip install -r requirements.txt
 
