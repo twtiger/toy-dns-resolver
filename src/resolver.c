@@ -1,5 +1,7 @@
 #include <stdint.h>
 #include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
 
 #include "types.h"
 
@@ -46,4 +48,37 @@ header* build_header() {
   head -> nscount = NO_RESOURCE_RECORDS_IN_AUTHORITY;
   head -> arcount = NO_RESOURCE_RECORDS_IN_ADDITIONAL;
   return head;
+};
+
+int count_words(char* string) {
+  int word_counter = 1;
+  for(int i = 0; i < strlen(string); i++){
+    if (string[i] == '.') {
+      word_counter++;
+    }
+  }
+  return word_counter;
+};
+
+void append(char* string, char character) {
+  int last = strlen(string);
+  realloc(string, last + 2);
+  string[last] = character;
+  string[last + 1] = '\0';
+}
+
+char** split_by_period(char* string) {
+  char **words = malloc(count_words(string));
+  int word_count = 0;
+  char *tmp_string = malloc(1);
+  for (int i = 0; i <= strlen(string); i++){
+    if (string[i] == '.' || i == strlen(string)) {
+      words[word_count] = tmp_string;
+      tmp_string = malloc(1);
+      word_count++;
+    } else {
+      append(tmp_string, string[i]);
+    }
+  }
+  return words;
 };

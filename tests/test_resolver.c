@@ -1,4 +1,6 @@
 #include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
 
 #include "resolver.h"
 #include "types.h"
@@ -95,4 +97,55 @@ void test_build_header_sets_qdcount_to_number_of_rrs_in_additional_section() {
     header *head = build_header();
     assert_equals_int(head->arcount, 0);
     free_header(head);
+}
+
+void test_count_words_returns_number_of_words_separated_by_dots() {
+    char* test_str = "something.else.another";
+
+    int num_words = count_words(test_str);
+
+    assert_equals_int(num_words, 3);
+}
+
+void test_append_adds_single_character_to_existing_string() {
+    char *test_str = "hell";
+    char *new_str = malloc(sizeof(test_str) + 1);
+    strcpy(new_str, test_str);
+
+    append(new_str, 'o');
+    assert_equals_str(new_str, "hello");
+    free(new_str);
+}
+
+void test_append_adds_multiple_characters_to_existing_string() {
+    char *test_str = "somethi";
+    char *new_str = malloc(sizeof(test_str) + 1);
+    strcpy(new_str, test_str);
+
+    append(new_str, 'n');
+    assert_equals_str(new_str, "somethin");
+
+    append(new_str, 'g');
+    assert_equals_str(new_str, "something");
+    free(new_str);
+}
+
+void test_split_by_dot_separates_string() {
+    char* test_str = "something.else.another";
+    char *expected[] = {
+      "something",
+      "else",
+      "another"
+    };
+
+    char **words = split_by_period(test_str);
+
+    assert_equals_str(words[0], expected[0]);
+    assert_equals_str(words[1], expected[1]);
+    assert_equals_str(words[2], expected[2]);
+
+    free(words[0]);
+    free(words[1]);
+    free(words[2]);
+    free(words);
 }
