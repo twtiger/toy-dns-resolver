@@ -82,5 +82,6 @@ char** split_by_period(char* string) {
       append(tmp_string, string[i]);
     }
   }
+  free(tmp_string);
   return words;
 };
