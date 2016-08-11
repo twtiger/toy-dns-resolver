@@ -62,9 +62,11 @@ int count_words(char* string) {
 
 void append(char* string, char character) {
   int last = strlen(string);
-  realloc(string, last + 2);
-  string[last] = character;
-  string[last + 1] = '\0';
+  char *res = realloc(string, last + 2);
+  if (res != NULL) {
+    string[last] = character;
+    string[last + 1] = '\0';
+  }
 }
 
 char** split_by_period(char* string) {
