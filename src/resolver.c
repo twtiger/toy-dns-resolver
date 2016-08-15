@@ -4,18 +4,7 @@
 #include <stdio.h>
 
 #include "types.h"
-
-const uint16_t QUERY = 0;
-const uint16_t STANDARD_QUERY = 0;
-const uint16_t NOT_AUTHORITATIVE = 0;
-const uint16_t NOT_TRUNCATED = 0;
-const uint16_t RECURSION_DESIRED = 1;
-const uint16_t RECURSION_NOT_AVAILABLE = 0;
-const uint16_t NO_ERRORS = 0;
-const uint16_t ONE_QUESTION = 1;
-const uint16_t NO_RESOURCE_RECORDS_IN_ANSWER = 0;
-const uint16_t NO_RESOURCE_RECORDS_IN_AUTHORITY = 0;
-const uint16_t NO_RESOURCE_RECORDS_IN_ADDITIONAL = 0;
+#include "constants.h"
 
 char* resolve(char* domain_name) {
     return "161.47.4.22";
