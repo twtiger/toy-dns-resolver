@@ -49,15 +49,6 @@ int count_words(char* string) {
   return word_counter;
 };
 
-void append(char* string, char character) {
-  int last = strlen(string);
-  char *res = realloc(string, last + 2);
-  if (res != NULL) {
-    string[last] = character;
-    string[last + 1] = '\0';
-  }
-}
-
 char** split_by_period(char* string) {
   int word_count = count_words(string);
   char **words = malloc(word_count);

@@ -107,29 +107,6 @@ void test_count_words_returns_number_of_words_separated_by_dots() {
     assert_equals_int(num_words, 3);
 }
 
-void test_append_adds_single_character_to_existing_string() {
-    char *test_str = "hell";
-    char *new_str = malloc(sizeof(test_str) + 1);
-    strcpy(new_str, test_str);
-
-    append(new_str, 'o');
-    assert_equals_str(new_str, "hello");
-    free(new_str);
-}
-
-void test_append_adds_multiple_characters_to_existing_string() {
-    char *test_str = "somethi";
-    char *new_str = malloc(sizeof(test_str) + 1);
-    strcpy(new_str, test_str);
-
-    append(new_str, 'n');
-    assert_equals_str(new_str, "somethin");
-
-    append(new_str, 'g');
-    assert_equals_str(new_str, "something");
-    free(new_str);
-}
-
 void test_split_by_dot_separates_string() {
     char* test_str = "something.else.another";
     char *expected[] = {
