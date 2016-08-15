@@ -70,18 +70,16 @@ void append(char* string, char character) {
 }
 
 char** split_by_period(char* string) {
-  char **words = malloc(count_words(string));
-  int word_count = 0;
-  char *tmp_string = malloc(1);
-  for (int i = 0; i <= strlen(string); i++){
-    if (string[i] == '.' || i == strlen(string)) {
-      words[word_count] = tmp_string;
-      tmp_string = malloc(1);
-      word_count++;
-    } else {
-      append(tmp_string, string[i]);
-    }
+  int word_count = count_words(string);
+  char **words = malloc(word_count);
+
+  char *s = strdup(string);
+  char *delim = ".";
+
+  for(int i=0; i < word_count; i++) {
+    char *word = strsep(&s, delim);
+    words[i] = malloc(strlen(word)+1);
+    strcpy(words[i], word);
   }
-  free(tmp_string);
   return words;
 };
