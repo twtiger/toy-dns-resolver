@@ -19,7 +19,6 @@ void test_returns_ip_addr_for_domain_name() {
     assert_equals_str(ip, expectedIp);
 }
 
-// TODO
 void test_parses_string_input_to_message_creates_header_with_query() {
 }
 

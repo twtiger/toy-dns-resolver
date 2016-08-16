@@ -41,7 +41,8 @@ header* build_header() {
 
 int count_words(char* string) {
   int word_counter = 1;
-  for(int i = 0; i < strlen(string); i++){
+  int i;
+  for(i = 0; i < strlen(string); i++){
     if (string[i] == '.') {
       word_counter++;
     }
@@ -56,7 +57,8 @@ char** split_by_period(char* string) {
   char *s = strdup(string);
   char *delim = ".";
 
-  for(int i=0; i < word_count; i++) {
+  int i;
+  for(i=0; i < word_count; i++) {
     char *word = strsep(&s, delim);
     words[i] = malloc(strlen(word)+1);
     strcpy(words[i], word);

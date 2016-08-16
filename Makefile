@@ -2,7 +2,7 @@ CC = gcc
 SRC_DIR := $(shell pwd)/src
 INCLUDES = -I
 OBJS = src/resolver.o
-STD = -std=c99
+STD = -ansi
 
 default: run_tests
 
